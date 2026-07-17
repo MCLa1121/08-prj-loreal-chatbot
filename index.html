@@ -2,56 +2,153 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+
+    <!-- Makes the page responsive on phones and tablets -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Chat Assistant</title>
+
+    <title>L'Oréal Smart Beauty Advisor</title>
+
+    <!-- Material Icons for the send button -->
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
+
+    <!-- Montserrat font -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
+
+    <!-- Connect the CSS file -->
     <link rel="stylesheet" href="style.css" />
   </head>
 
   <body>
     <div class="page-wrapper">
-      <!------- Header / Branding ------->
+      <!-- =========================
+           HEADER AND BRANDING
+           ========================= -->
       <header class="site-header">
-        <h1 class="site-title">Smart Product Advisor</h1>
+        <!--
+          Put the provided L'Oréal logo inside an images folder.
+
+          Example:
+          project-folder/
+          ├── index.html
+          ├── style.css
+          ├── script.js
+          └── images/
+              └── loreal-logo.png
+        -->
+        <img
+          src="images/loreal-logo.png"
+          alt="L'Oréal logo"
+          class="brand-logo"
+        />
+
+        <p class="eyebrow">PERSONALIZED BEAUTY, POWERED BY AI</p>
+
+        <h1 class="site-title">Smart Beauty Advisor</h1>
+
+        <p class="header-description">
+          Discover L'Oréal products and create personalized skincare,
+          haircare, makeup, and fragrance routines.
+        </p>
       </header>
 
-      <!------- Chat Area ------->
+      <!-- =========================
+           MAIN CHATBOT AREA
+           ========================= -->
       <main>
         <section class="chatbox">
-          <div id="chatWindow" class="chat-window">
-            <!-- messages will be appended here via JS -->
+          <!--
+            This area will display the latest user question.
+            We will use it for one of the LevelUps later.
+          -->
+          <div id="latestQuestion" class="latest-question" hidden>
+            <span class="latest-question-label">Your latest question</span>
+            <p id="latestQuestionText"></p>
           </div>
 
+          <!-- Chat messages will appear here -->
+          <div
+            id="chatWindow"
+            class="chat-window"
+            aria-live="polite"
+          >
+            <!-- Starting chatbot message -->
+            <div class="message-row assistant-row">
+              <div class="avatar">L</div>
+
+              <div class="message assistant-message">
+                Hello! I’m your L'Oréal Smart Beauty Advisor. Ask me about
+                skincare, haircare, makeup, fragrance, or beauty routines.
+              </div>
+            </div>
+          </div>
+
+          <!-- Suggested questions -->
+          <div class="suggestion-list">
+            <button
+              type="button"
+              class="suggestion-chip"
+              data-question="Help me build a simple skincare routine."
+            >
+              Skincare routine
+            </button>
+
+            <button
+              type="button"
+              class="suggestion-chip"
+              data-question="Which L'Oréal products may help dry hair?"
+            >
+              Dry hair
+            </button>
+
+            <button
+              type="button"
+              class="suggestion-chip"
+              data-question="Help me create an everyday makeup routine."
+            >
+              Everyday makeup
+            </button>
+          </div>
+
+          <!-- User input form -->
           <form id="chatForm" class="chat-form">
-            <label for="userInput" class="visually-hidden">Message</label>
+            <label for="userInput" class="visually-hidden">
+              Ask a beauty question
+            </label>
+
             <input
               id="userInput"
               name="userInput"
               type="text"
-              placeholder="Ask me about products or routines…"
+              placeholder="Ask about a L'Oréal product or routine..."
               autocomplete="off"
               required
             />
-            <button type="submit" id="sendBtn">
+
+            <button type="submit" id="sendBtn" aria-label="Send message">
               <span class="material-icons">send</span>
-              <span class="visually-hidden">Send</span>
             </button>
           </form>
+
+          <p class="disclaimer">
+            Recommendations are general beauty information and are not medical
+            advice.
+          </p>
         </section>
       </main>
 
-      <!------- Footer Links ------->
+      <!-- =========================
+           FOOTER
+           ========================= -->
       <footer class="site-footer">
-        <p>&copy; 2025 Company Name. All rights reserved.</p>
+        <p>&copy; 2026 L'Oréal Chatbot Student Project</p>
+
         <nav>
-          <!-- These URLs are placeholders -->
           <a href="#">Privacy Policy</a>
           <a href="#">Terms of Use</a>
           <a href="#">Contact</a>
@@ -59,6 +156,7 @@
       </footer>
     </div>
 
+    <!-- Connect the JavaScript file -->
     <script src="script.js"></script>
   </body>
 </html>
